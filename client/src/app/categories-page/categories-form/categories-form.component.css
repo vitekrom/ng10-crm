@@ -1,0 +1,21 @@
+.collection .collection-item:hover {
+  background-color: #f9fbe7;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.dn {
+  display: none;
+}
+
+.h200 {
+  height: 200px;
+}
+.fs15 {
+  font-size: 15px;
+}
+
+.l1r {
+  left: 1rem;
+}

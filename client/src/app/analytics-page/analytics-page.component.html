@@ -1,0 +1,29 @@
+<div class="page-title">
+  <h5>Сводная аналитика:</h5>
+
+</div>
+
+<div [style.display]="pending ? 'none' : 'block'">
+  <div class="average-price">
+    <p>
+      Всего <strong>{{ allOrders }}</strong> заказ на общую сумму <strong>{{totalGain}}</strong> руб. Средний чек
+      <strong>{{ average }} руб.</strong>
+    </p>
+
+
+  </div>
+  <div>
+    <div class="analytics-block pb3">
+      <h5>Выручка</h5>
+      <canvas #gain=""></canvas>
+    </div>
+
+    <div class="analytics-block">
+      <h5>Заказы</h5>
+      <canvas #order=""></canvas>
+    </div>
+  </div>
+</div>
+
+
+<app-loader *ngIf="pending"></app-loader>

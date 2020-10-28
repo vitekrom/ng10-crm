@@ -1,0 +1,6 @@
+.fr {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+}

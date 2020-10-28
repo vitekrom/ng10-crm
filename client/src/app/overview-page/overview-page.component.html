@@ -1,0 +1,56 @@
+<div class="page-title">
+  <h5 class="card-title">
+    Статистика за вчера: ({{yesterday | date: 'longDate'}})
+  </h5>
+
+</div>
+
+<div class="row" *ngIf="data$ | async as data; else loader">
+  <div class="col s12 l6">
+    <div class="card blue-grey darken-3 white-text">
+      <div class="card-content">
+        <span class="card-title">Выручка:</span>
+        <h3>{{data.gain.yesterday}} руб.</h3>
+        <h3 class="m0 mb1" [ngClass]="{
+                'green-text text-accent-3': data.gain.isHigher,
+                'red-text text-accent-1': !data.gain.isHigher
+              }">
+          <i class="material-icons">
+            {{data.gain.isHigher ? 'arrow_upward' : 'arrow_downward'}}
+          </i>
+          {{data.gain.percent}}%
+        </h3>
+        <p>Выручка за вчера на {{data.gain.percent}}%
+          {{data.gain.isHigher ? 'выше' : 'ниже'}}
+          среднего: {{data.gain.compare}} руб. в день</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 l6">
+    <div class="card deep-orange darken-3 white-text">
+      <div class="card-content">
+        <span class="card-title">Заказы:</span>
+        <h3>{{data.orders.yesterday}} зак.</h3>
+        <h3 class="m0 mb1" [ngClass]="{
+                'green-text text-accent-3': data.orders.isHigher,
+                'pink-text text-accent-1': !data.orders.isHigher
+              }">
+          <i class="material-icons">
+            {{data.orders.isHigher ? 'arrow_upward' : 'arrow_downward'}}
+          </i>
+          {{data.orders.percent}}%
+        </h3>
+        <p>Число заказов вчера на {{data.orders.percent}}%
+          {{data.orders.isHigher ? 'выше' : 'ниже'}}
+          среднего значения: {{data.orders.compare}} зак. в день</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loader="">
+  <app-loader></app-loader>
+</ng-template>
+
+<app-analytics-page></app-analytics-page>

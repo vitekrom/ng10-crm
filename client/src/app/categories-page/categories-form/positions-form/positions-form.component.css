@@ -1,0 +1,6 @@
+.collection .collection-item:hover {
+  background-color: #ececec;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+}
